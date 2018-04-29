@@ -23,10 +23,11 @@ while True:
     if int(total_mensajes["ApproximateNumberOfMessages"])>int(limite_mensajes):
         print("ALERTA!! se sobrepaso el limite de mensajes en la cola")
         print("Debe escalarse el dyno del Worker!!!!!!!!!")
+        time.sleep(5)
     else:
         print("No se ha sobrepasado el limite de mensajes")
         print("Maximo numero de mensajes elegido: ", limite_mensajes )
         print("Mensajes en la cola: ", int(total_mensajes["ApproximateNumberOfMessages"]))
-    time.sleep(5)
+        time.sleep(5)
 print("**************************************************")
 print("**************************************************")
