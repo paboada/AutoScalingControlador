@@ -8,7 +8,7 @@ print("**************************************************")
 
 access_id=os.environ["S3_AWS_ACCESS_KEY_ID"]
 access_secret=os.environ["S3_AWS_SECRET_ACCESS_KEY"]
-sqs_cliente = boto3.client('s3', aws_access_key_id=access_id, aws_secret_access_key=access_secret)
+sqs_cliente = boto3.client('sqs', aws_access_key_id=access_id, aws_secret_access_key=access_secret)
 sqs = boto3.resource('sqs', aws_access_key_id=access_id, aws_secret_access_key=access_secret)
 queue = sqs.get_queue_by_name(QueueName='sqs_concursos')
 url_queue=queue.url
