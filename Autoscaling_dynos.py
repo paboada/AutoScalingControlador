@@ -8,8 +8,9 @@ print("Inicia controlador del autoscaling para el worker ")
 print("**************************************************")
 
 print("Digite el numero de mensajes limite para escalar el dyno del worker")
+limite_mensajes=input()
+
 while True:
-    limite_mensajes=input()
     access_id=os.environ["S3_AWS_ACCESS_KEY_ID"]
     access_secret=os.environ["S3_AWS_SECRET_ACCESS_KEY"]
     sqs_cliente = boto3.client('sqs', aws_access_key_id=access_id, aws_secret_access_key=access_secret)
@@ -23,11 +24,10 @@ while True:
     if int(total_mensajes["ApproximateNumberOfMessages"])>int(limite_mensajes):
         print("ALERTA!! se sobrepaso el limite de mensajes en la cola")
         print("Debe escalarse el dyno del Worker!!!!!!!!!")
-        time.sleep(5)
     else:
         print("No se ha sobrepasado el limite de mensajes")
         print("Maximo numero de mensajes elegido: ", limite_mensajes )
         print("Mensajes en la cola: ", int(total_mensajes["ApproximateNumberOfMessages"]))
-        time.sleep(5)
+    time.sleep(5)
 print("**************************************************")
 print("**************************************************")
