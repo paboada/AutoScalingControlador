@@ -27,6 +27,6 @@ while True:
         print("No se ha sobrepasado el limite de mensajes")
         print("Maximo numero de mensajes elegido: ", limite_mensajes )
         print("Mensajes en la cola: ", int(total_mensajes["ApproximateNumberOfMessages"]))
-    sleep(15)
+    time.sleep(15)
 print("**************************************************")
 print("**************************************************")
