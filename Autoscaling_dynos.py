@@ -1,6 +1,7 @@
 import boto3
 import botocore
 import os
+import time
 
 print("**************************************************")
 print("Inicia controlador del autoscaling para el worker ")
